@@ -11,7 +11,7 @@ namespace Labs
             if (!CheckIfInputIsCorrect(input))
                 Console.WriteLine("Введено некорректное число");
             else
-                Console.WriteLine("Число корректно");
+                Console.WriteLine($"Сумма цифр: {GetSum(input)}");
 
         }
 
@@ -30,6 +30,18 @@ namespace Labs
             return flag;
         }
 
+        public static int GetSum(string input)
+        {
+            input = input.Replace("-", "");
+            int sum = 0;
+            for (int i = 0; i < input.Length; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                    if (j == input[i]-'0')
+                        sum += j;
+            }
+            return sum;
+        }
 
     }
 
