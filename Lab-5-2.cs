@@ -18,7 +18,7 @@ namespace Labs
         public static bool CheckIfInputIsCorrect(string input)
         {
             bool flag = false;
-            if (input == "" || input.Contains(',') || input.Contains('.')) return flag;
+            if (input == "") return flag;
             for (int i = 0; i < input.Length; i++)
             {
                 if (i == 0 && input[i] == '-')
