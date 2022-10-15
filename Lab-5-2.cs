@@ -14,6 +14,7 @@ namespace Labs
 
             Console.WriteLine("Введите число:");
             string input = Console.ReadLine();
+
             if (!CheckIfInputIsCorrect(input))
                 Console.WriteLine("Некорректный ввод");
             else
@@ -42,8 +43,10 @@ namespace Labs
             for (int i = 0; i < input.Length; i++)
             {
                 for (int j = 0; j < 10; j++)
-                    if (j == input[i]-'0')
+                {
+                    if (j == input[i] - '0')
                         sum += j;
+                }
             }
             return sum;
         }
