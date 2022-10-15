@@ -3,13 +3,19 @@
 namespace Labs
 {
     public static class Program
-    { 
+    {
+
+        static char[] digits;
         public static void Main()
         {
+            digits = new char[10];
+            for (int i = 0; i < digits.Length; i++)
+                digits[i] =(char) ('0' + i);
+
             Console.WriteLine("Введите число:");
             string input = Console.ReadLine();
             if (!CheckIfInputIsCorrect(input))
-                Console.WriteLine("Введено некорректное число");
+                Console.WriteLine("Некорректный ввод");
             else
                 Console.WriteLine($"Сумма цифр: {GetSum(input)}");
 
@@ -17,13 +23,13 @@ namespace Labs
 
         public static bool CheckIfInputIsCorrect(string input)
         {
-            bool flag = false;
-            if (input == "") return flag;
+            bool flag = true;
+            if (input == "") return false;
             for (int i = 0; i < input.Length; i++)
             {
-                if (i == 0 && input[i] == '-')
+                if (i == 0 && input.Length > 1 && input[i] == '-')
                     continue;
-                if (!new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' }.Contains(input[i]))
+                if (!digits.Contains(input[i]))
                     flag = false;
             }
             return flag;
