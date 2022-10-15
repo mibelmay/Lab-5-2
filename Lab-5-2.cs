@@ -23,9 +23,8 @@ namespace Labs
             {
                 if (i == 0 && input[i] == '-')
                     continue;
-                if (new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' }.Contains(input[i]))
-                    flag = true;
-                else flag = false;
+                if (!new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' }.Contains(input[i]))
+                    flag = false;
             }
             return flag;
         }
